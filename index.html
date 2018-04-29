@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>cssleading</title>
+</head>
+<style>
+  .paper-spinner {
+    position: relative;
+    --paper-spinner-container-rotation-duration: 1568ms;
+    --paper-spinner-expand-contract-duration: 1333ms;
+    --paper-spinner-full-cycle-duration: 5332ms;
+    --paper-spinner-cooldown-duration: 400ms;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(167, 164, 164);
+  }
+  .paper-spinner.column {
+    flex-direction: column;
+  }
+
+  #spinnerContainer.paper-spinner-lite {
+    width: 28px;
+    height: 28px;
+    direction: ltr;
+    display: inline-block;
+  }
+
+  #spinnerContainer.paper-spinner-lite {
+    -webkit-animation: container-rotate var(--paper-spinner-container-rotation-duration) linear infinite;
+    animation: container-rotate var(--paper-spinner-container-rotation-duration) linear infinite;
+  }
+
+  @-webkit-keyframes container-rotate {
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  @keyframes container-rotate {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .spinner-layer.paper-spinner-lite {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    font-size: 0;
+  }
+  
+  .paper-spinner-lite .spinner-layer.paper-spinner-lite {
+    -webkit-animation-name: fill-unfill-rotate;
+    -webkit-animation-duration: var(--paper-spinner-full-cycle-duration);
+    -webkit-animation-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+    -webkit-animation-iteration-count: infinite;
+    animation-name: fill-unfill-rotate;
+    animation-duration: var(--paper-spinner-full-cycle-duration);
+    animation-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+    animation-iteration-count: infinite;
+    opacity: 1;
+  }
+
+  .paper-spinner-lite .spinner-layer.layer-1.paper-spinner-lite {
+    -webkit-animation-name: fill-unfill-rotate, layer-1-fade-in-out;
+    animation-name: fill-unfill-rotate, layer-1-fade-in-out;
+  }
+
+  .paper-spinner-lite .spinner-layer.layer-2.paper-spinner-lite {
+    -webkit-animation-name: fill-unfill-rotate, layer-2-fade-in-out;
+    animation-name: fill-unfill-rotate, layer-2-fade-in-out;
+  }
+
+  .paper-spinner-lite .spinner-layer.layer-3.paper-spinner-lite {
+    -webkit-animation-name: fill-unfill-rotate, layer-3-fade-in-out;
+    animation-name: fill-unfill-rotate, layer-3-fade-in-out;
+  }
+
+  .paper-spinner-lite .spinner-layer.layer-4.paper-spinner-lite {
+    -webkit-animation-name: fill-unfill-rotate, layer-4-fade-in-out;
+    animation-name: fill-unfill-rotate, layer-4-fade-in-out;
+  }
+
+  @-webkit-keyframes fill-unfill-rotate {
+    12.5% {
+      -webkit-transform: rotate(135deg);
+    }
+    25% {
+      -webkit-transform: rotate(270deg);
+    }
+    37.5% {
+      -webkit-transform: rotate(405deg);
+    }
+    50% {
+      -webkit-transform: rotate(540deg);
+    }
+    62.5% {
+      -webkit-transform: rotate(675deg);
+    }
+    75% {
+      -webkit-transform: rotate(810deg);
+    }
+    87.5% {
+      -webkit-transform: rotate(945deg);
+    }
+    to {
+      -webkit-transform: rotate(1080deg);
+    }
+  }
+
+  @keyframes fill-unfill-rotate {
+    12.5% {
+      transform: rotate(135deg);
+    }
+    25% {
+      transform: rotate(270deg);
+    }
+    37.5% {
+      transform: rotate(405deg);
+    }
+    50% {
+      transform: rotate(540deg);
+    }
+    62.5% {
+      transform: rotate(675deg);
+    }
+    75% {
+      transform: rotate(810deg);
+    }
+    87.5% {
+      transform: rotate(945deg);
+    }
+    to {
+      transform: rotate(1080deg);
+    }
+  }
+
+  @-webkit-keyframes layer-1-fade-in-out {
+    0% {
+      opacity: 1;
+    }
+    25% {
+      opacity: 1;
+    }
+    26% {
+      opacity: 0;
+    }
+    89% {
+      opacity: 0;
+    }
+    90% {
+      opacity: 1;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes layer-1-fade-in-out {
+    0% {
+      opacity: 1;
+    }
+    25% {
+      opacity: 1;
+    }
+    26% {
+      opacity: 0;
+    }
+    89% {
+      opacity: 0;
+    }
+    90% {
+      opacity: 1;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes layer-2-fade-in-out {
+    0% {
+      opacity: 0;
+    }
+    15% {
+      opacity: 0;
+    }
+    25% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    51% {
+      opacity: 0;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes layer-2-fade-in-out {
+    0% {
+      opacity: 0;
+    }
+    15% {
+      opacity: 0;
+    }
+    25% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    51% {
+      opacity: 0;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @-webkit-keyframes layer-3-fade-in-out {
+    0% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    75% {
+      opacity: 1;
+    }
+    76% {
+      opacity: 0;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes layer-3-fade-in-out {
+    0% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    75% {
+      opacity: 1;
+    }
+    76% {
+      opacity: 0;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @-webkit-keyframes layer-4-fade-in-out {
+    0% {
+      opacity: 0;
+    }
+    65% {
+      opacity: 0;
+    }
+    75% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes layer-4-fade-in-out {
+    0% {
+      opacity: 0;
+    }
+    65% {
+      opacity: 0;
+    }
+    75% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  .circle-clipper.paper-spinner-lite {
+    display: inline-block;
+    position: relative;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .spinner-layer.paper-spinner-lite::after {
+    left: 45%;
+    width: 10%;
+    border-top-style: solid;
+  }
+
+  .spinner-layer.paper-spinner-lite::after,
+  .circle-clipper.paper-spinner-lite::after {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    border-width: 3px;
+    border-radius: 50%;
+  }
+
+  .circle-clipper.paper-spinner-lite::after {
+    bottom: 0;
+    width: 200%;
+    border-style: solid;
+    border-bottom-color: transparent !important;
+  }
+
+  .circle-clipper.left.paper-spinner-lite::after {
+    left: 0;
+    border-right-color: transparent !important;
+    -webkit-transform: rotate(129deg);
+    transform: rotate(129deg);
+  }
+
+  .circle-clipper.right.paper-spinner-lite::after {
+    left: -100%;
+    border-left-color: transparent !important;
+    -webkit-transform: rotate(-129deg);
+    transform: rotate(-129deg);
+  }
+
+  .paper-spinner-lite .gap-patch.paper-spinner-lite::after,
+  .paper-spinner-lite .circle-clipper.paper-spinner-lite::after {
+    -webkit-animation-duration: var(--paper-spinner-expand-contract-duration);
+    -webkit-animation-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+    -webkit-animation-iteration-count: infinite;
+    animation-duration: var(--paper-spinner-expand-contract-duration);
+    animation-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+    animation-iteration-count: infinite;
+  }
+
+  .paper-spinner-lite .circle-clipper.left.paper-spinner-lite::after {
+    -webkit-animation-name: left-spin;
+    animation-name: left-spin;
+  }
+
+  .paper-spinner-lite .circle-clipper.right.paper-spinner-lite::after {
+    -webkit-animation-name: right-spin;
+    animation-name: right-spin;
+  }
+
+  @-webkit-keyframes left-spin {
+    0% {
+      -webkit-transform: rotate(130deg);
+    }
+    50% {
+      -webkit-transform: rotate(-5deg);
+    }
+    to {
+      -webkit-transform: rotate(130deg);
+    }
+  }
+
+  @keyframes left-spin {
+    0% {
+      transform: rotate(130deg);
+    }
+    50% {
+      transform: rotate(-5deg);
+    }
+    to {
+      transform: rotate(130deg);
+    }
+  }
+
+  @-webkit-keyframes right-spin {
+    0% {
+      -webkit-transform: rotate(-130deg);
+    }
+    50% {
+      -webkit-transform: rotate(5deg);
+    }
+    to {
+      -webkit-transform: rotate(-130deg);
+    }
+  }
+
+  @keyframes right-spin {
+    0% {
+      transform: rotate(-130deg);
+    }
+    50% {
+      transform: rotate(5deg);
+    }
+    to {
+      transform: rotate(-130deg);
+    }
+  }
+
+  #spinnerContainer.cooldown.paper-spinner-lite {
+    -webkit-animation: container-rotate var(--paper-spinner-container-rotation-duration) linear infinite, fade-out var(--paper-spinner-cooldown-duration) cubic-bezier(0.4, 0.0, 0.2, 1);
+    animation: container-rotate var(--paper-spinner-container-rotation-duration) linear infinite, fade-out var(--paper-spinner-cooldown-duration) cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+
+  @-webkit-keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  .paper-spinner .paper-spinner-text{
+    font-size: 14px;
+    padding: 8px;
+  }
+</style>
+<body>
+  <div class="paper-spinner">
+    <div id="spinnerContainer" class="paper-spinner-lite">
+      <div class="spinner-layer paper-spinner-lite">
+        <div class="circle-clipper left paper-spinner-lite"></div>
+        <div class="circle-clipper right paper-spinner-lite"></div>
+      </div>
+    </div>
+    <div class="paper-spinner-text">加载中</div>
+  </div>
+</body>
+
+</html>
